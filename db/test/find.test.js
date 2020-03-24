@@ -7,17 +7,14 @@ let newOwner = {}
 describe('Finding records', function () {
   beforeEach(function (done) {
     newOwner = new Owner(data.Owners)
-
-    newOwner.save().then(function () {
-      done()
-    })
+    newOwner.save().then(() => done())
   })
 
   it('should find a record from the database', function (done) {
     let req = { firstName: 'Charlotte' }
 
     Owner.findOne(req).then(function (res) {
-      assert(res.firstName === 'Charlotte')
+      assert(res.firstName === req.firstName)
       done()
     })
   })
