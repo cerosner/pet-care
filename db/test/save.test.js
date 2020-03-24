@@ -1,16 +1,13 @@
 const assert = require('assert')
+const data  = require('../../seed')
 const Owner = require('../models/owner')
+
+let newOwner = new Owner(data.Owners)
 
 describe('Saving records', function () {
   it('should save a record to the database', function (done) {
-    let owner = new Owner({
-      firstName: 'Charlotte',
-      lastName: 'Azaceta',
-      petName: 'Brody'
-    })
-
-    owner.save().then(function () {
-      assert(owner.isNew === false)
+    newOwner.save().then(function () {
+      assert(newOwner.isNew === false)
       done()
     })
   })
