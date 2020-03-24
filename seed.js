@@ -1,5 +1,5 @@
 module.exports = {
-  Owners: {
+  clients: {
     firstName: 'Charlotte',
     lastName: 'Azaceta',
     petName: 'Brody'
