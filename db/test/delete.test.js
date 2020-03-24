@@ -1,13 +1,13 @@
 const assert = require('assert')
-const data = require('../../seed')
 const Owner = require('../models/owner')
+const { clients } = require('../../seed')
 
-let newOwner = {}
+let data = {}
 
 describe('Removing records', function () {
   beforeEach(function (done) {
-    newOwner = new Owner(data.Owners)
-    newOwner.save().then(() => done())
+    data = new Owner(clients)
+    data.save().then(() => done())
   })
 
   it('should delete a record from the database', function (done) {

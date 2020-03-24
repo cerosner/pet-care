@@ -1,13 +1,13 @@
 const assert = require('assert')
-const data = require('../../seed')
 const Owner = require('../models/owner')
+const { clients } = require('../../seed')
 
-let newOwner = {}
+let data = {}
 
 describe('Finding records', function () {
   beforeEach(function (done) {
-    newOwner = new Owner(data.Owners)
-    newOwner.save().then(() => done())
+    data = new Owner(clients)
+    data.save().then(() => done())
   })
 
   it('should find a record from the database', function (done) {
@@ -20,9 +20,9 @@ describe('Finding records', function () {
   })
 
   it('should find a record by ID', function (done) {
-    Owner.findById(newOwner._id).then(function (res) {
+    Owner.findById(data._id).then(function (res) {
       // Unable to assess _id as an Object
-      assert(res._id.toString() === newOwner._id.toString())
+      assert(res._id.toString() === data._id.toString())
       done()
     })
   })
