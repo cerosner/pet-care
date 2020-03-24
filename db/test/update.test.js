@@ -20,4 +20,16 @@ describe('Updating records', function () {
       })
     })
   })
+
+  it(`should increment a record's duration by 1`, function (done) {
+    let expectedDur = data.duration++
+    let inc = { $inc: { duration: 1 } }
+
+    Owner.updateOne(data, inc).then(function () {
+      Owner.findById(data._id).then(function (res) {
+        assert(res.duration === expectedDur)
+        done()
+      })
+    })
+  })
 })
