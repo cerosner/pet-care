@@ -1,6 +1,6 @@
 /*
   Change into the `db` directory before
-  executing `npm run test` in the terminal.
+  running `mocha` in the terminal.
 */
 
 const mongoose = require('mongoose')
@@ -12,7 +12,9 @@ mongoose.Promise = global.Promise
 // Connects to database
 before(function (done) {
   mongoose.connect(`mongodb://localhost/${DB}`, {
-    useNewUrlParser: true, useUnifiedTopology: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
   })
 
   mongoose.connection.once('open', function () {
