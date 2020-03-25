@@ -25,8 +25,8 @@ before(function (done) {
 })
 
 // Deletes dummy data
-beforeEach(function (done) {
+afterEach(function (done) {
   mongoose.connection.collections.owners.drop(function () {
-    done()
+    mongoose.connection.collections.services.drop(() => done())
   })
 })
