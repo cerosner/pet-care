@@ -1,20 +1,22 @@
 const assert = require('assert')
 const Owner = require('../models/owner')
-const { clients } = require('../../seed')
+const { client } = require('../../seed')
 
 let data = {}
 
 describe('Finding records', function () {
   beforeEach(function (done) {
-    data = new Owner(clients)
+    data = new Owner(client)
     data.save().then(() => done())
   })
 
   it('should find a record from the database', function (done) {
-    let req = { firstName: 'Charlotte' }
+    let req = {
+      name: { first: 'Charlotte' }
+    }
 
-    Owner.findOne(req).then(function (res) {
-      assert(res.firstName === req.firstName)
+    Owner.findOne(data.req).then(function (res) {
+      assert(res.name.first === req.name.first)
       done()
     })
   })
