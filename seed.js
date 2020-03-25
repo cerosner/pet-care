@@ -3,6 +3,10 @@ module.exports = {
     name: {
       first: 'Charlotte',
       last: 'Azaceta'
+    },
+    pet: {
+      name: 'Brody',
+      category: 'dog'
     }
   },
   service: {
