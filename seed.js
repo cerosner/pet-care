@@ -1,7 +1,12 @@
 module.exports = {
-  clients: {
-    firstName: 'Charlotte',
-    lastName: 'Azaceta',
-    petName: 'Brody'
+  client: {
+    name: {
+      first: 'Charlotte',
+      last: 'Azaceta'
+    }
+  },
+  service: {
+    category: 'walk',
+    fee: 20
   }
 }
